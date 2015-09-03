@@ -17,6 +17,23 @@ libraryDependencies ++= Seq(
   "org.scalatestplus" %% "play" % "1.4.0-M3"
 )
 
-// bintraySettings
+import bintray.Keys._
+
+lazy val commonSettings = Seq(
+  version := "0.0.2",
+  organization := "com.jamesneve"
+)
+
+lazy val root = (project in file(".")).
+  settings(commonSettings ++ bintrayPublishSettings: _*).
+  settings(
+    sbtPlugin := true,
+    name := "Database Cleaner",
+    description := "Database cleaner for Play 2.4, Scalatest and MySQL",
+    licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html")),
+    publishMavenStyle := false,
+    repository := "sbt-plugins",
+    bintrayOrganization in bintray := None
+  )
 
 com.typesafe.sbt.SbtGit.versionWithGit

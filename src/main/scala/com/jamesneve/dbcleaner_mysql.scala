@@ -10,7 +10,7 @@ import play.api.test._
 
 import slick.driver.MySQLDriver.api._
 
-trait DBCleaner extends Suite with BeforeAndAfterEach {
+trait DBCleaner extends Suite with BeforeAndAfterEach with BeforeAndAfterAll {
   protected val database: Database
 
   private def cleanDB() {
@@ -27,5 +27,9 @@ trait DBCleaner extends Suite with BeforeAndAfterEach {
 
   override def afterEach() {
     cleanDB()
+  }
+
+  override def afterAll() {
+    Await.result(database.shutdown, Duration.Inf)
   }
 }
