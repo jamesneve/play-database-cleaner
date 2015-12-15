@@ -11,16 +11,16 @@ scalaVersion := "2.11.7"
 crossScalaVersions := Seq("2.10.4", "2.11.7")
 
 libraryDependencies ++= Seq(
-	"com.typesafe.slick" %% "slick" % "3.0.0",
-	"mysql" % "mysql-connector-java" % "5.1.24",
-  "org.scalatest" %% "scalatest" % "2.2.1",
-  "org.scalatestplus" %% "play" % "1.4.0-M3"
+	"com.typesafe.slick" %% "slick" % "3.+",
+	"mysql" % "mysql-connector-java" % "5.1.+",
+  "org.scalatest" %% "scalatest" % "2.2.+",
+  "org.scalatestplus" %% "play" % "1.+"
 )
 
 import bintray.Keys._
 
 lazy val commonSettings = Seq(
-  version := "0.0.2",
+  version := "0.1.1",
   organization := "com.jamesneve"
 )
 
